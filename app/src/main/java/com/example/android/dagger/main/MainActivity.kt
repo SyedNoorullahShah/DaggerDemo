@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
      * else carry on with MainActivity
      */
     override fun onCreate(savedInstanceState: Bundle?) {
-        (application as MyApplication).appComponent.inject(this)
+        (application as MyApplication).appComponent.getUserComponentBuilder().build().inject(this)
         super.onCreate(savedInstanceState)
 
         if (!userManager.isUserLoggedIn()) {

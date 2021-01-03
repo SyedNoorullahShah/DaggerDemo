@@ -10,7 +10,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [StorageModule::class])
 interface AppComponent {
-    fun inject(mainActivity: MainActivity)
+    fun getUserComponentBuilder(): UserComponent.Builder
     fun getLoginComponentBuilder(): LoginComponent.Builder
     fun getRegComponentBuilder(): RegistrationComponent.Builder
 
