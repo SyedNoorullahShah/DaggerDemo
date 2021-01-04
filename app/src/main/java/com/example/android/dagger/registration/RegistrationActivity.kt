@@ -21,6 +21,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.android.dagger.MyApplication
 import com.example.android.dagger.R
+import com.example.android.dagger.dagger.components.RegistrationComponent
 import com.example.android.dagger.main.MainActivity
 import com.example.android.dagger.registration.enterdetails.EnterDetailsFragment
 import com.example.android.dagger.registration.termsandconditions.TermsAndConditionsFragment
@@ -30,9 +31,10 @@ class RegistrationActivity : AppCompatActivity() {
 
     @Inject
     lateinit var registrationViewModel: RegistrationViewModel
-    val component  = (application as MyApplication).appComponent.getRegComponentBuilder().build()
+    lateinit var component:RegistrationComponent
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        component = (application as MyApplication).appComponent.getRegComponentBuilder().build()
         component.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)

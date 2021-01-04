@@ -16,13 +16,20 @@
 
 package com.example.android.dagger.user
 
+import android.util.Log
+import com.example.android.dagger.dagger.scopes.LoginScope
 import javax.inject.Inject
 import kotlin.random.Random
 
 /**
  * UserDataRepository contains user-specific data such as username and unread notifications.
  */
+@LoginScope
 class UserDataRepository @Inject constructor(private val userManager: UserManager) {
+
+    init{
+        Log.d("noor", "NEW REPO !!! ")
+    }
 
     val username: String
         get() = userManager.username
